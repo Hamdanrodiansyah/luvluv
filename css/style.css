@@ -1,0 +1,91 @@
+/* css/style.css */
+
+:root {
+  --pink: #e83e8c;
+  --pink-light: #f8bbd0;
+  --pink-dark: #ad1457;
+  --bg-light: #fff0f6;
+}
+
+body {
+  background: var(--bg-light);
+  padding-top: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.quiz-container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 35px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(232, 62, 140, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.quiz-container:hover {
+  box-shadow: 0 12px 35px rgba(232, 62, 140, 0.6);
+}
+
+.btn-pink {
+  background-color: var(--pink);
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pink:hover,
+.btn-pink:focus {
+  background-color: var(--pink-dark);
+  color: #fff;
+  box-shadow: 0 0 15px var(--pink);
+}
+
+.question label {
+  color: var(--pink-dark);
+}
+
+.text-pink {
+  color: var(--pink);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-10px);
+  }
+  40%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+/* Halaman hasil sukses atau gagal */
+body.success-page {
+  background: #ffe6f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.message-box {
+  background: #e83e8c;
+  color: white;
+  padding: 50px 70px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px #e83e8c;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1;
+}

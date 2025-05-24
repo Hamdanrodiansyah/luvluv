@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz Essay Tema Cinta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="quiz-container shadow p-4 rounded">
+      <h2 class="mb-4 text-center text-pink fw-bold"><i class="fas fa-heart"></i> Halo sayang tolong jawab yaa 💕<i class="fas fa-heart"></i></h2>
+      <form id="quizForm" novalidate>
+        <div class="mb-4">
+          <label for="q1" class="form-label fw-semibold">1. Dimana tempat pertamakali kita nge-date? </label>
+          <input type="text" class="form-control" id="q1" name="q1" required autocomplete="off" />
+        </div>
+
+        <div class="mb-4">
+          <label for="q2" class="form-label fw-semibold">2. Kapan pacar kamu ini lahir? </label>
+          <input type="text" class="form-control" id="q2" name="q2" required autocomplete="off" />
+        </div>
+
+        <div class="mb-4">
+          <label for="q3" class="form-label fw-semibold">3. Apa hobi pacar kamu? </label>
+          <input type="text" class="form-control" id="q3" name="q3" required autocomplete="off" />
+        </div>
+
+        <div class="mb-4">
+          <label for="q4" class="form-label fw-semibold">4. Apa warna favorit pacar kamu? </label>
+          <input type="text" class="form-control" id="q4" name="q4" required autocomplete="off" />
+        </div>
+
+        <div class="mb-4">
+          <label for="q5" class="form-label fw-semibold">5. Zodiac apa yang kamu dan pacar kamu miliki? </label>
+          <input type="text" class="form-control" id="q5" name="q5" required autocomplete="off" />
+        </div>
+
+        <button type="submit" class="btn btn-pink w-100 mt-4 fw-bold shadow-sm">Kirim Jawaban <i class="fas fa-paper-plane ms-2"></i></button>
+      </form>
+    </div>
+
+    <script>
+      const correctAnswers = {
+        q1: ['bioskop'],
+        q2: ['4 november 2002', '4 nov 2002', '04 november 2002', '04 nov 2002'],
+        q3: ['mancing'],
+        q4: ['hitam2', 'hitam'],
+        q5: ['scorpio'],
+      };
+
+      document.getElementById('quizForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        let score = 0;
+
+        for (const [key, value] of formData.entries()) {
+          const userAnswer = value.trim().toLowerCase();
+          const validAnswers = correctAnswers[key];
+
+          if (validAnswers.some((ans) => ans === userAnswer)) {
+            score++;
+          }
+        }
+
+        const total = Object.keys(correctAnswers).length;
+        const params = new URLSearchParams();
+        params.append('score', score);
+        params.append('total', total);
+
+        window.location.href = `result.html?${params.toString()}`;
+      });
+    </script>
+  </body>
+</html>
